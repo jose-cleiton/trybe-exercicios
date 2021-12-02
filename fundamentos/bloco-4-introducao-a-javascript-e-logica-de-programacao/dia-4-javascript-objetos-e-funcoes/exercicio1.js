@@ -10,6 +10,13 @@ let info = {
 info.recorrente='Sim';
 console.log(info);
 
+for (let index in info) {
+    console.log(index);
+}
+
+
+/* Mais exemplos de como inserir uma nova propiedade no objeto.
+
 
 
 
@@ -39,3 +46,4 @@ data2 =
 
 
     console.log(data2);
+    */
