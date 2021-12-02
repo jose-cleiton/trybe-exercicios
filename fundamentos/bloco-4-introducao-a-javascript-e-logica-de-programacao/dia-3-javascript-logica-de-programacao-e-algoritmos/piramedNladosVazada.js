@@ -1,4 +1,4 @@
-let size = 10;
+let size = 50;
 let symbol = ' *';
 let text = " ";
 let espacoEmBranco=size;
@@ -26,22 +26,3 @@ for (let lineIndex = 1; lineIndex <= size; lineIndex += 1) {
     
 }
 
-
-
-/*
-console.log(symbol+dentroDaPiramide+symbol)
-dentroDaPiramide+=' ';
-console.log(symbol+dentroDaPiramide+symbol)
-dentroDaPiramide+=' ';
-console.log(symbol+dentroDaPiramide+symbol)
-
-*/
-/*
-
-12345*
-1234*6*
-123*4*6*
-12*4*6*8*
-1*3*5*7*9*
-
-*/

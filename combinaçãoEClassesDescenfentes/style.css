@@ -1,0 +1,17 @@
+ol li {
+    background-color: yellow;
+}
+li:nth-child(odd) {
+    color: rgb(67, 228, 27);
+}
+li:nth-child(even) {
+    text-transform: uppercase;
+}
+h1, h2 {
+    color: tomato;
+}
+
+h1 em, h2 em {
+    font-size: 40px;
+    border: 1px solid black;
+  }

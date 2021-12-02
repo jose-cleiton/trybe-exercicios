@@ -11,4 +11,3 @@ for (let i=1;i<=valorLadoQuadrado-1;i++) {
    }
 console.log(caracterAImprimir);
 
-//let meioDoTriangulo =((((valorLadoTriangulo/2)|0)+1));
