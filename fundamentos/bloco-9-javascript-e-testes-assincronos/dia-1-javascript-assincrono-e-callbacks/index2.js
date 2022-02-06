@@ -1,30 +1,28 @@
-const planetDistanceFromSun = ({ name, distanceFromSun: { value, measurementUnit } }) =>
-  `${name} is ${value} ${measurementUnit} apart from the Sun`;
+/**
+ * 2 - Passe, como parâmetro e como retorno, uma callback na função getUser .
+No código abaixo você tem a função getUser modificada, que agora funciona de modo assíncrono e imprime dados de uma pessoa depois de um certo tempo. Complete a função getUser de forma que ela receba uma callback como parâmetro e a retorne para que possa realizar as operações abaixo sobre a pessoa:
+Insira uma callback como parâmetro da função getUser ;
+Retorne a callback passada como parâmetro na função getUser ;
 
-const mars = {
-  name: "Mars",
-  distanceFromSun: {
-    value: 227900000,
-    measurementUnit: "kilometers",
-  },
+ */
+
+const userFullName = ({ firstName, lastName }) => `Hello! My name is ${firstName} ${lastName}`;
+const userNationality = ({ firstName, nationality }) => `${firstName} is ${nationality}`;
+
+const delay = (maxMilliseconds = 5000) => Math.floor(Math.random() * maxMilliseconds);
+
+const getUser = (callback) => {
+  setTimeout(() => {
+    const user = {
+      firstName: "Ivan",
+      lastName: "Ivanovich",
+      nationality: "Russian",
+    };
+    // Retorne a `callback` passada como parâmetro na função `getUser`
+    // Dica: você pode manter o `console.log()`
+    console.log(callback(user));
+  }, delay());
 };
 
-const venus = {
-  name: "Venus",
-  distanceFromSun: {
-    value: 108200000,
-    measurementUnit: "kilometers",
-  },
-};
-
-const jupiter = {
-  name: "Jupiter",
-  distanceFromSun: {
-    value: 778500000,
-    measurementUnit: "kilometers",
-  },
-};
-
-console.log(planetDistanceFromSun(mars)); // A
-setTimeout(() => console.log(planetDistanceFromSun(venus)), 3000); // B
-setTimeout(() => console.log(planetDistanceFromSun(jupiter)), 2000); // C
+getUser(userFullName); // deve imprimir "Hello! My name is Ivan Ivanovich" depois de um certo tempo
+getUser(userNationality); // deve imprimir "Ivan is Russian" depois de um certo tempo
