@@ -1,24 +1,12 @@
-import './App.css';
-const classe = 'hello-class';
-function helloWorld (nome, sobrenome) {
-  return <h1 className={classe} >Hello, {`${nome} ${sobrenome}`}</h1>;
-}
-const element = helloWorld("Jorge", "Maravilha");
+import Greeting  from './Greeting '
+import Image from './Image '
 
-const container = <div >{element}</div>;
-const time = (
-    <div>
-
-    </div>
-  );
 function App() {
-  
-
   return (
-    <div className="App">
-      {container}
-      {time}
-    </div>
+    <main>
+      <Greeting name="José Cleiton" lastName="Santos" />
+      <Image source='https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg' />
+    </main>
   );
 }
 
