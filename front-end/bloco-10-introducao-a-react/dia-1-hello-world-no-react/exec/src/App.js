@@ -1,18 +1,21 @@
-import './App.css';
-const classe = 'hello-class';
-function helloWorld (nome, sobrenome) {
-  return <h1 className={classe} >Hello, {`${nome} ${sobrenome}`}</h1>;
+// src/App.js
+import React from 'react';
+import './App.css'
+import Header from './components/Header';
+import Main from './components/Main';
+import Mostrar from './components/Mostrar';
+class App extends React.Component {
+render() {
+    return (
+        <>
+          
+            <Header /> 
+            <Main />
+            
+        </>
+    );
+    };
 }
-const element = helloWorld("Jorge", "Maravilha");
-const container = <div >{element}</div>;
-function App() {
-  
 
-  return (
-    <div className="App">
-      {container}
-    </div>
-  );
-}
 
 export default App;
