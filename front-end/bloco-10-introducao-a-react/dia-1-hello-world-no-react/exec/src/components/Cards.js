@@ -8,7 +8,7 @@ import data from "./data";
 class Cards extends React.Component {
   render() {
     return (
-      <div className="border border-secondary" id ='id-pokemon'>
+      <div  id ='id-pokemon'>
         {data.map((pokemon) => (
           <div id="id-cards">
             <Informacao informacao={pokemon} />
