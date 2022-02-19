@@ -1,1 +1,21 @@
 
+main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap : wrap;
+}
+#id-cards{
+    width: 500px;
+    display: flex;
+     justify-content: space-around;
+   
+    
+}
+#id-imagem{
+    width:150px ;
+    height: 150px;
+}
+#id-informacao{
+     width:150px;
+     height: 150px;
+}
