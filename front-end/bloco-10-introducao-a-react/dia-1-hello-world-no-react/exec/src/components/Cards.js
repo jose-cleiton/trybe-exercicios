@@ -3,13 +3,18 @@
 import React from "react";
 import Imagem from "./Imagem";
 import Informacao from "./Informacao";
+import data from "./data";
 
 class Cards extends React.Component {
   render() {
     return (
-      <div className="border border-secondary" id="id-cards">
-        <Informacao />
-        <Imagem /> 
+      <div className="border border-secondary" id ='id-pokemon'>
+        {data.map((pokemon) => (
+          <div id="id-cards">
+            <Informacao informacao={pokemon} />
+            <Imagem informacao={pokemon} />
+          </div>
+        ))}
       </div>
     );
   }
