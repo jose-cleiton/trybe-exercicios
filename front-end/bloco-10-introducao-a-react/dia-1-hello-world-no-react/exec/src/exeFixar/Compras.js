@@ -3,10 +3,7 @@ import React from "react";
 class Compras extends React.Component {
     render() {
          const shoppingList = ['leite', 'arroz', 'feijão', 'banana', 'carne'];
-    const items = shoppingList.map((item) => {
-      console.log("item: ", item);
-      return (<li>{ item }</li>);
-    });
+    const items = shoppingList.map((item, index) =>  (<li>{ item }</li>));
      return (
       <div>
         <h2>Lista de compras</h2>
