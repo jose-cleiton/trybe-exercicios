@@ -3,7 +3,8 @@ import React from "react";
 
 class Titulo extends React.Component {
     render() {
-        return <h1 className="display-1">Pokemons</h1>
+        const titulo = this.props;
+        return <h1 className="display-1">{ titulo.text}</h1>
     }
 }
 export default Titulo;

@@ -5,16 +5,13 @@ main{
     flex-wrap : wrap;
 }
 #id-cards{
-    width: 500px;
+    width: 400px;
     display: flex;
-     justify-content: center;
+    justify-content: center;
     flex-wrap : wrap;
     border: solid 1px;
     border-radius: 2%;
     margin: 10px 1em 0 auto;
-   
-  
-    
 }
 #id-pokemon{
     display: flex;
