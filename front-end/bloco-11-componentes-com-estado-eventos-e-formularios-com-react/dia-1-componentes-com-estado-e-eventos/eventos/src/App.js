@@ -1,9 +1,9 @@
 import './App.css';
-
+import Event from './Exercicios/Event';
 function App() {
   return (
     <div className="App">
-     alo oi
+    <Event />
     </div>
   );
 }
