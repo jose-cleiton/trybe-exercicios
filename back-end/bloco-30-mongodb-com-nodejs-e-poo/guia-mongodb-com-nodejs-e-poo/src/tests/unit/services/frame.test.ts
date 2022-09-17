@@ -4,7 +4,7 @@ import { ZodError } from 'zod';
 import { ErrorTypes } from '../../../errors/catalog';
 import FrameModel from '../../../models/Frame';
 import FrameService from '../../../services/Frame';
-import { frameMock, frameMockWithId } from '../../mocks/frameMock';
+import { frameMocForChangeWithId, frameMock, frameMOckInvalid, frameMockWithId } from '../../mocks/frameMock';
 
 
 
@@ -20,6 +20,7 @@ before(() => {
     .onCall(0).resolves(frameMockWithId) 
     // já na próxima chamada ele vai mudar seu retorno, isso pode ser feito várias vezes
     .onCall(1).resolves(null); 
+  sinon.stub(frameModel, 'update').resolves(frameMocForChangeWithId);
 })
 after(() => {
   sinon.restore()
@@ -28,7 +29,7 @@ after(() => {
 
 
 
-describe("Testando o método create", () => {
+describe("01 - Testando o método create", () => {
   it("Deve retornar um frame", async () => {
     const frame = await frameService.create(frameMock);
     expect(frame).to.be.an('object');
@@ -57,33 +58,53 @@ describe("Testando o método create", () => {
 
                       expect(error).to.be.instanceOf(ZodError);
   });
-	describe('ReadOne Frame', () => {
-		it('Success', async () => {
-			const frameCreated = await frameService.readOne(frameMockWithId._id);
-
-			expect(frameCreated).to.be.deep.equal(frameMockWithId);
-		});
-
-		it('Failure', async () => {
-                        let error;
-			try {
-                        // a mesma chamada que o teste acima aqui vai gerar o erro por causa do nosso sinon.stub(...).onCall(1)
-				await frameService.readOne(frameMockWithId._id);
-			} catch (err:any) {
-                                error = err
-			}
-
-                        expect(error, 'error should be defined').not.to.be.undefined;
-                        expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
-		});
-	});
-
-
+  
+  
 })
 
 
+describe('02 -ReadOne Frame', () => {
+  it('Success', async () => {
+    const frameCreated = await frameService.readOne(frameMockWithId._id);
+
+    expect(frameCreated).to.be.deep.equal(frameMockWithId);
+  });
+
+  it('Failure', async () => {
+    let error;
+    try {
+      
+      await frameService.readOne(frameMockWithId._id);
+    } catch (err:any) {
+     error = err
+    }
+
+       expect(error, 'error should be defined').not.to.be.undefined;
+       expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
+  });
+});
+
+describe('03 - Update Frame', () => {
+  it('3-01 - Success', async () => {
+    const frameUpdate = await frameService.update('62cf1fc6498565d94eba52cd', frameMocForChangeWithId);
+
+    expect(frameUpdate).to.be.deep.equal(frameMocForChangeWithId);
+  });
+
+  it('3-02 - Failure', async () => {
+    try {
+      await frameService.update('62cf1fc6498565d94eba52cd', frameMOckInvalid);
+      expect(true).to.be.false;
+    } catch (error:any) {
+      expect(error).to.be.an.instanceOf(ZodError);
+    }
+      
+   
+  })
 
 
+
+})
  
 
 }) // fim describe

@@ -28,6 +28,11 @@ const frameMocForChangeWithId:IFrame & withId = {
 
 }
 
+const frameMOckInvalid: any = {
+  material: 'Adamantium de ouro',
+
+}
+
 
 
 
@@ -35,6 +40,7 @@ export {
   frameMock, 
   frameMockWithId,
   frameMockForChancge,
-  frameMocForChangeWithId
+  frameMocForChangeWithId,
+  frameMOckInvalid
 
 };

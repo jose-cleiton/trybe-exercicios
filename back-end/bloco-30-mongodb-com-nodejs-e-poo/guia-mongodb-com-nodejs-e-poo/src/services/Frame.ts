@@ -11,6 +11,12 @@ export default class FrameService implements IService<IFrame> {
   constructor(model:IModel<IFrame>) {
     this._frame = model;
   }
+  public async update(_id: string, obj: IFrame): Promise<IFrame | null> {
+    const parsed = FrameZodSchema.safeParse(obj);
+    if (!parsed.success) throw parsed.error;
+    
+    return this._frame.update(_id, obj);
+  }
 
   public async create(obj:unknown):Promise<IFrame> {
     // recebemos uma variável qualquer, e garantimos que ela é um objeto com formato correto utilizando o zod
